@@ -35,6 +35,9 @@ gem "algoliasearch-rails"
 # JSON validator: used to validate data format
 gem 'json-schema'
 
+# Use ruby progress bar for rake tasks
+gem 'ruby-progressbar'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
