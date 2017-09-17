@@ -3,7 +3,10 @@ class App < ActiveRecord::Base
   validates_with AppsValidator
 
   algoliasearch per_environment: true do
-    attribute :name, :image, :link, :category, :rank
+    attributes :name, :image, :link, :category, :rank
+    searchableAttributes ['name', 'category']
+    attributesForFaceting [:category]
+    customRanking ['asc(rank)']
   end
 
   def name
