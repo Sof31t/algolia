@@ -2,6 +2,7 @@
 .byebug_history
 
 docker/postgres/data/*
+docker/secrets.env
 
 # Ignore bundler config.
 /.bundle
