@@ -1,7 +1,7 @@
 class App < ActiveRecord::Base
   include AlgoliaSearch
 
-  algoliasearch do
+  algoliasearch per_environment: true do
     attribute :name, :image, :link, :category, :rank
   end
 
