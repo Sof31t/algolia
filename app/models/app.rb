@@ -1,5 +1,6 @@
 class App < ActiveRecord::Base
   include AlgoliaSearch
+  validates_with AppsValidator
 
   algoliasearch per_environment: true do
     attribute :name, :image, :link, :category, :rank
