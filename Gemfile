@@ -30,8 +30,9 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem "react-rails"
-gem "algoliasearch-rails"
+gem 'react-rails'
+gem 'algoliasearch-rails'
+
 # JSON validator: used to validate data format
 gem 'json-schema'
 
