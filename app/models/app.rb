@@ -2,7 +2,7 @@ class App < ActiveRecord::Base
   include AlgoliaSearch
 
   algoliasearch do
-    attribute :id, :name, :image, :email, :link, :category, :rank
+    attribute :name, :image, :link, :category, :rank
   end
 
   def name
