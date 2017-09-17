@@ -32,6 +32,8 @@ gem 'jbuilder', '~> 2.5'
 
 gem "react-rails"
 gem "algoliasearch-rails"
+# JSON validator: used to validate data format
+gem 'json-schema'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
