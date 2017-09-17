@@ -6,9 +6,92 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.5/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.4/dist/instantsearch.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@2.1.4/dist/instantsearch.min.js"></script>
   </head>
 
   <body>
     <%= yield %>
   </body>
+  <script>
+    var search = instantsearch({
+      appId: '<%= ENV["ALGOLIA_APPLICATION_ID"] %>',
+      apiKey: '<%= ENV["ALGOLIA_CLIENT_API_KEY"] %>',
+      indexName: '<%= ENV["ALGOLIA_INDEX"] %>',
+      urlSync: {}
+    });
+
+    search.addWidget(
+      instantsearch.widgets.searchBox({
+        container: '#q'
+      })
+    );
+
+    search.addWidget(
+      instantsearch.widgets.stats({
+        container: '#stats'
+      })
+    );
+
+    var hitTemplate =
+      '<div class="hit media">' +
+        '<div class="media-left">' +
+          '<div class="media-object" style="background-image: url(\'{{image}}\');"></div>' +
+        '</div>' +
+        '<div class="media-body">' +
+          '<a href="{{link}}"><h4 class="media-heading">{{{_highlightResult.name.value}}}</a>' +
+          '<p class="genre"><span class="badge">{{category}}</span></p>' +
+        '</div>' +
+      '</div>';
+
+    var noResultsTemplate =
+      '<div class="text-center">No results found matching <strong>{{query}}</strong>.</div>';
+
+    search.addWidget(
+      instantsearch.widgets.hits({
+        container: '#hits',
+        hitsPerPage: 10,
+        templates: {
+          empty: noResultsTemplate,
+          item: hitTemplate
+        },
+        transformData: function(hit) {
+          hit.stars = [];
+          for (var i = 1; i <= 5; ++i) {
+            hit.stars.push(i <= hit.rating);
+          }
+          return hit;
+        }
+      })
+    );
+
+    search.addWidget(
+      instantsearch.widgets.pagination({
+        container: '#pagination',
+        cssClasses: {
+          root: 'pagination',
+          active: 'active'
+        }
+      })
+    );
+
+    search.addWidget(
+      instantsearch.widgets.refinementList({
+        container: '#genres',
+        attributeName: 'category',
+        operator: 'or',
+        limit: 10,
+        cssClasses: {
+          list: 'nav nav-list',
+          count: 'badge pull-right',
+          active: 'active'
+        }
+      })
+    );
+
+    search.start();
+  </script>
 </html>
