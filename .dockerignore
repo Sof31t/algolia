@@ -1,0 +1,20 @@
+.git
+.dockerignore
+.byebug_history
+
+docker/postgres/data/*
+
+# Ignore bundler config.
+/.bundle
+
+# Ignore all logfiles and tempfiles.
+/log/*
+!/log/.keep
+/tmp
+
+# React on Rails
+npm-debug.log*
+node_modules
+
+# Generated js bundles
+/app/assets/webpack/*

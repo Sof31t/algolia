@@ -1,0 +1,30 @@
+version: '2'
+
+services:
+  algolia:
+    build: .
+    container_name: algolia
+    ports:
+      - "3003:3000"
+    depends_on:
+      - algolia-db
+    links:
+      - algolia-db
+    network_mode: "bridge"
+    volumes:
+      - .:/src
+      - /usr/src/app/node_modules/
+    environment:
+      RAILS_ENV: development
+      # DATABASE_URL: "postgres://postgres:4242424242@patient-backend-db:5432/patient_backend"
+
+  algolia-db:
+    container_name: algolia-db
+    network_mode: bridge
+    image: postgres:9.5.2
+    environment:
+      POSTGRES_DB: algolia
+      POSTGRES_PASSWORD: 4242424242
+      POSTGRES_USER: postgres
+    volumes:
+      - ./docker/postgres/data:/var/lib/postgresql/data

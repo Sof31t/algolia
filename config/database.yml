@@ -1,0 +1,17 @@
+test:
+  adapter:  postgresql
+  host:     algolia-db
+  encoding: utf8
+  database: algolia_test
+  pool:     5
+  username: postgres
+  password: 4242424242
+
+development:
+  adapter:  postgresql
+  host:     algolia-db
+  encoding: utf8
+  database: algolia
+  pool:     5
+  username: postgres
+  password: 4242424242
