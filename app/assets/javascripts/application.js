@@ -17,4 +17,5 @@
 //= require components
 //= require algolia/v3/algoliasearch.min
 //= require jquery
+//= require removable
 //= require_tree .
