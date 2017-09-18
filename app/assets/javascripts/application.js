@@ -16,4 +16,5 @@
 //= require react_ujs
 //= require components
 //= require algolia/v3/algoliasearch.min
+//= require jquery
 //= require_tree .

@@ -36,6 +36,8 @@ gem 'algoliasearch-rails'
 # JSON validator: used to validate data format
 gem 'json-schema'
 
+gem 'jquery-rails'
+
 # Use ruby progress bar for rake tasks
 gem 'ruby-progressbar'
 
