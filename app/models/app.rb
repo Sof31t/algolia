@@ -4,7 +4,7 @@ class App < ActiveRecord::Base
 
   algoliasearch per_environment: true do
     attributes :name, :image, :link, :category, :rank
-    searchableAttributes ['name', 'category']
+    searchableAttributes [:name]
     attributesForFaceting [:category]
     customRanking ['asc(rank)']
   end
