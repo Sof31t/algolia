@@ -56,3 +56,6 @@ To initialise database with a dumped JSON ([data.json](db/data/data.json)), you 
 rake apps:populate
 ```
 ![alt text](https://image.ibb.co/ibwPTk/Capture_d_e_cran_2017_09_17_a_17_55_32.png)
+
+# Enjoy searching
+![alt text](https://image.ibb.co/gz95ZQ/Capture_d_e_cran_2017_09_22_a_01_47_50.png)
