@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   scope module: :api do
     scope module: :v1 do
-      resources :apps, path: '/api/1/apps', only: [:edit, :destroy]
+      resources :apps, path: '/api/1/apps', only: :destroy
       resources :apps, path: '/api/1/apps', only: [:create, :update], defaults: {format: 'json'}
     end
   end
