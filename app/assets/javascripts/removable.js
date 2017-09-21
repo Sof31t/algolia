@@ -1,6 +1,8 @@
 $(document).ready(function() {
   $(document).on("click",".removable",function() {
-    var app_id = $(this).attr('id');
+    var app_id = $(this).attr('removable_id');
+    var path = window.location.href.replace(/^(?:\/\/|[^\/]+)*\//, "");
+
     swal({
       title: 'Are you sure?',
       text: "You won't be able to revert this!",
@@ -17,18 +19,23 @@ $(document).ready(function() {
       $.ajax({
         url: "/api/1/apps/"+app_id,
         type: 'DELETE',
-        success: function(){
+        success: function() {
           swal({
             title: 'Deleted!',
-            text: "Your app has been deleted.",
+            text: 'Your app has been deleted.',
             type: 'success',
-            confirmButtonText: 'OK',
-            confirmButtonClass: 'btn btn-info',
-            showCancelButton: false,
-            allowOutsideClick: false
-          }).then(function (dismiss) {
-            location.reload();
-          })
+            showConfirmButton: false,
+            allowOutsideClick: false,
+            timer: 2000
+          }).then(
+            function () {window.location.replace('/'+ path);},
+            // handling the promise rejection
+            function (dismiss) {
+              if (dismiss === 'timer') {
+                window.location.replace('/'+ path);
+              }
+            }
+          )
         },
         error: function(){
           swal(
