@@ -18,6 +18,7 @@ services:
       - ./docker/secrets.env
     environment:
       RAILS_ENV: development
+      ALGOLIA_INDEX: App_development
 
   algolia-db:
     container_name: algolia-db
