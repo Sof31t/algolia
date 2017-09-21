@@ -55,7 +55,7 @@ header {
 
   .searchbox-container {
     margin-left: 240px;
-    max-width: 400px;
+    max-width: 100%;
     .input-group {
       margin-top: 5px;
       .form-control {
@@ -192,6 +192,16 @@ section {
       padding: 0 15px;
     }
 
+    #form {
+      display:none;
+      padding: 15px;
+    }
+
+    #new_app{
+      border: 1px solid #F3F3F3;
+      padding: 15px;
+    }
+
     #pagination {
       .pagination a {
         background: $media-gray-light;
@@ -261,6 +271,14 @@ section {
 
 .genre .badge {
   background: #BBBBBB;
+}
+
+#toggle {
+  cursor: pointer;
+}
+
+.fa-pencil-square-o {
+  padding: 5px;
 }
 
 .fa-times {
