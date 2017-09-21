@@ -10,7 +10,11 @@
 </a>
 <a href="https://hub.docker.com/_/ruby/">
   <img src="https://img.shields.io/badge/Docker-ruby:2.3.1 slim-yellow.svg">
-</a><br /><br />
+</a>
+<a href="https://try-algolia.herokuapp.com/">
+  <img src="https://img.shields.io/badge/Heroku-Production-blue.svg">
+</a>
+<br /><br />
 Welcome to the Algolia App !
 
 # Requirements
