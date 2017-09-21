@@ -13,7 +13,6 @@ services:
     network_mode: "bridge"
     volumes:
       - .:/src
-      - /usr/src/app/node_modules/
     env_file:
       - ./docker/secrets.env
     environment:
