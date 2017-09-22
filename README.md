@@ -33,6 +33,7 @@ ALGOLIA_APPLICATION_ID=KZXM4R3Z2L
 ALGOLIA_API_KEY=k27dmtcuvixym29r38nrmv6uv54qrr4x
 ALGOLIA_CLIENT_API_KEY=q14f0egdqak490ro0k4f0ijs68aaaua5
 ```
+PS: This is just an example with fake secrets
 
 # Launch docker
 Launching docker will automatically launch local server for you
@@ -51,8 +52,12 @@ http://localhost:3003/
 ```
 
 # Populate database
-To initialise database with a dumped JSON ([data.json](db/data/data.json)), you will need to run a rake task like following:
+To initialise database with a dumped JSON ([data.json](db/data/data.json)), you will need to run a rake task inside your docker container like following:
 ``` bash
+# Go inside container
+docker exec -it algolia bash
+
+# Start populating
 rake apps:populate
 ```
 ![alt text](https://image.ibb.co/ibwPTk/Capture_d_e_cran_2017_09_17_a_17_55_32.png)
